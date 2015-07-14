@@ -1,6 +1,6 @@
 class CreateSongs < ActiveRecord::Migration
   def change
-    create_table :authors do |t|
+    create_table :users do |t|
       t.string :name
       t.string :email
       t.string :bio
@@ -8,7 +8,7 @@ class CreateSongs < ActiveRecord::Migration
     end
 
     create_table :songs do |t|
-      t.references :author
+      t.references :user
       t.string :title
       t.string :artist
       t.string :url

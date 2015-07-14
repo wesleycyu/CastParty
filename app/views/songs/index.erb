@@ -1,18 +1,24 @@
-<h1> ALL DEM MUSICS </h1>
-<% @songs.each do |song|%>
-  <h2>
+<center>
 
-    <% if song.url.present? %>
-      <a href=<%= song.url %> target="_blank">
+  <h1> ALL DEM MUSICS </h1>
+
+  <h3><a href = "songs/new">Why not add a track to the list?</a></h3>
+
+  <div>
+    <% @songs.each do |song|%>
+      <h2>
+        <% if song.url.present? %>
+          <a href=<%= song.url %> target="_blank">
+        <% end %>
+
+        <%= song.artist %> - <%= song.title %>
+
+        <% if song.url.present? %>
+          </a>
+        <% end %>
+      </h2>
+      <h5>(Posted by <%= song.user.email %>)</h5>
     <% end %>
+  </div>
 
-    <%= song.artist %> - <%= song.title %>
-
-    <% if song.url.present? %>
-      </a>
-    <% end %>
-
-  </h2>
-
-  <h5>(Posted by <%= song.author.name %>)</h5>
-<% end %>
+</center>

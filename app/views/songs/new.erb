@@ -1,0 +1,27 @@
+<h1>Submit a New Jam</h1>
+
+<form method='post' action="/songs">
+  <div>
+    <label>Song Title:</label>
+    <input type="text" name="title" value="<%= @song.title %>">
+  </div>
+
+  <div>
+    <label>Artist:</label>
+    <input type="text" name="artist" value="<%= @song.artist %>">
+  </div>
+
+  <div>
+    <label>URL</label>
+    <input type="text" name="url" value="<%= @song.artist %>"><small>(Optional)</small>
+  </div>
+
+  <div>
+    <label>Email Address:</label>
+    <input type="text" name="email" value="<%= @user.email %>">
+  </div>
+
+  <div>
+    <input type="submit" name="submit">
+  </div>
+</form>
