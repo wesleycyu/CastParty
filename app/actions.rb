@@ -21,7 +21,8 @@ end
 
 post '/songs' do
   @user = User.new(
-    email: params[:email]
+    email: params[:email],
+    name: params[:name]
   )
   @user.save
   @song = Song.new(
@@ -30,11 +31,9 @@ post '/songs' do
     url: params[:url],
     user_id: @user.id
   )
-byebug
   if @song.save
     redirect '/songs'
   else
-    puts "ERROR"
     erb :'songs/new'
   end
 end
