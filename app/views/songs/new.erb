@@ -15,12 +15,12 @@
 
   <form class="pure-form" method='post' action="/songs">
     <feildset class="pure-group">
-        <input class="pure-input-1-2" type="text" name="title" value="<%= @song.title %>" placeholder="Song Title">
-        <input class="pure-input-1-2" type="text" name="artist" value="<%= @song.artist %>" placeholder="Artist">
-        <input class="pure-input-1-2" type="text" name="url" value="<%= @song.artist %>" placeholder="Song URL (Optional)">
+        <input class="pure-input-1-2" type="text" name="song[title]" value="<%= @song.title %>" placeholder="Song Title">
+        <input class="pure-input-1-2" type="text" name="song[artist]" value="<%= @song.artist %>" placeholder="Artist">
+        <input class="pure-input-1-2" type="text" name="song[url]" value="<%= @song.artist %>" placeholder="Song URL (Optional)">
     </feildset>
 
-    <button type="submit" name="submit">Post my jam!</button>
+    <button type="submit">Post my jam!</button>
   </form>
   <a href = "/logout"> LOGOUT ME </a>
 </center>

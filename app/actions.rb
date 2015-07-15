@@ -5,6 +5,14 @@ def crypt(text)
   BCrypt::Engine.hash_secret text, @@salt
 end
 
+# before "/songs" do
+#   @user = User.find(session[:id])
+# end
+
+# def current_user
+#   @user
+# end
+
 get '/' do
   erb :index
 end
@@ -34,7 +42,7 @@ get '/login' do
 end
 
 post '/login' do
-  @user = User.where('name = ?', params[:name])[0]
+  @user = User.where(name: params[:name]).first
   @password = BCrypt::Engine.hash_secret params[:password], @@salt
   if @user.password == @password
     session[:id] = @user.id
@@ -48,7 +56,6 @@ get '/logout' do
   session.clear
   redirect to('/login')
 end
-
 
 get '/songs' do
   @songs = Song.all
@@ -65,17 +72,13 @@ get '/songs/new' do
 end
 
 get '/songs/:id' do
-  @song = Song.new(id: params[:id])
+  @song = Song.new(params)
   erb :'songs/show'
 end
 
 post '/songs' do
-  @song = Song.new(
-    title: params[:title],
-    artist: params[:artist],
-    url: params[:url],
-    user_id: session[:id]
-  )
+  @user = User.find(session[:id])
+  @song = @user.songs.build(params[:song]) # <- OMG Check this out! it uses the 'before' filtre above
   if @song.save
     redirect '/songs'
   else
@@ -83,10 +86,26 @@ post '/songs' do
   end
 end
 
-get '/upvote/:id' do
+get '/vote/:id' do
   if session[:id]
-    @user = User.find(session[:id])
-    @song = Song.find(params[:id])
+    @user = User.find(session[:id].to_i)
+    @song = Song.find(params[:id].to_i)
+    @vote = Upvote.where('user_id = ? AND song_id = ?', @user.id, @song.id)
+    if @vote.empty?
+      Upvote.create(
+        user_id: @user.id,
+        song_id: @song.id
+      )
+    else
+      @vote[0].destroy
+    end
+  else
+    redirect '/login'
+  end
+  redirect '/songs'
+end
+
+
 
 
 
