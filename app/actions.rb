@@ -37,3 +37,8 @@ post '/songs' do
     erb :'songs/new'
   end
 end
+
+get '/login' do
+  erb :'login/index'
+end
+
