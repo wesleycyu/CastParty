@@ -19,7 +19,13 @@
           <% end %>
         </h2>
         <h3><%= song.artist %></h3>
-        <h5>(Posted by <%= song.user.email %>)</h5>
+        <h5>(Posted by
+          <% if song.user %>
+            <%= song.user.name %>
+          <% else %>
+            Anonymous
+          <% end %>)
+        </h5>
       </div>
     <% end %>
   </div>
