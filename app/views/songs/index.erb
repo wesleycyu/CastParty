@@ -1,41 +1,39 @@
-<center>
-
   <h1> ALL DEM MUSICS </h1>
 
   <h3><a href = "songs/new">Why not add a track to the list?</a></h3>
 
   <div class="pure-g">
     <% @songs.each do |song|%>
-      <div class="pure-u-1-3">
+      <div class="pure-u-2-3" >
+      <div class="song_block">
+          <div class="vote">
+          <center>
+            <a href= "/vote/<%= song.id %>"><%= song.upvotes.count.to_i %></a>
+            </center>
+          </div>
 
-        <div class="pure-u-1-3">
-          <a href= "/vote/<%= song.id %>"><%= song.upvotes.count.to_i %></a>
+          <div class="song">
+            <h2>
+              <% if song.url.present? %>
+                <a href=<%= song.url %> target="_blank">
+              <% end %>
+
+             <%= song.title %>
+
+              <% if song.url.present? %>
+                </a>
+              <% end %>
+            </h2>
+            <h3><%= song.artist %></h3>
+            <h5>(Posted by
+              <% if song.user %>
+                <%= song.user.name %>
+              <% else %>
+                Anonymous
+              <% end %>)
+            </h5>
+          </div>
         </div>
-
-        <div class="pure-u-2-3">
-          <h2>
-            <% if song.url.present? %>
-              <a href=<%= song.url %> target="_blank">
-            <% end %>
-
-           <%= song.title %>
-
-            <% if song.url.present? %>
-              </a>
-            <% end %>
-          </h2>
-          <h3><%= song.artist %></h3>
-          <h5>(Posted by
-            <% if song.user %>
-              <%= song.user.name %>
-            <% else %>
-              Anonymous
-            <% end %>)
-          </h5>
-        </div>
-
       </div>
     <% end %>
   </div>
-
-</center>

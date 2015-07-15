@@ -1,0 +1,99 @@
+* {
+  /* Browser Resets */
+  margin: 0;
+  padding: 0;
+  /* Global Styles */
+  font-family: Lato;
+  font-weight: 300;
+}
+
+
+.menu {
+  margin: 0 auto;
+  padding-top: 20px;
+  padding-left: 60px;
+  padding-right: 60px;
+  padding-bottom: 75px;
+}
+
+.menu img {
+  width: 50px;
+  height: 50px;
+  float: left;
+}
+.menu ul {
+  padding-top: 15px;
+  text-align: right;
+}
+
+.menu li {
+  display: inline-block;
+  color: #ffffff;
+  font-size: 1.5em;
+  padding-top: .5em;
+  padding-bottom: .5em;
+  padding-right: 50px;
+  padding-left: 50px;
+  cursor: pointer;
+  background-color: #0075B0;
+}
+
+.vote {
+  background-color: #0075B0;
+  color: #ffffff;
+  float: left;
+  width: 70px;
+  height: 70px;
+  margin-right: 20px
+}
+
+.vote a {
+  color: white;
+  text-decoration: none;
+  font-size: 28px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 70px;
+}
+
+.song_block {
+  padding: 25px;
+  margin: auto;
+}
+.song {
+  float: left;
+}
+
+.contact {
+  margin: 0 auto;
+  padding-bottom: 40px;
+  border-top: solid #dddddd;
+  border-width: 1px;
+  padding-top: 25px;
+  background-color: #0075B0;
+}
+
+.contact img {
+  width: 67px;
+  height: 67px;
+  margin-top: 40px;
+  padding-bottom: 20px;
+  transition-timing-function: ease-in;
+  transition: width 0.1s, height 0.1s;
+}
+
+.contact img:hover {
+  width: 75px;
+  height: 75px;
+  cursor: pointer;
+}
+
+.contact p {
+  font-size: 1.3em;
+  color: #ffffff;
+  font-weight: 100;
+}
+
+
+
+
