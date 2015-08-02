@@ -1,7 +1,11 @@
-Sinatra
+# CastParty: HN-Style Podcast Aggregator
 =============
+## About
+CastParty is Sinatra app where users can post, comment, upvote, and downvote podcast episodes.
 
-Brought to you by Lighthouse Labs
+## Stack
+ - Ruby with Sinatra
+ - HTML/CSS
 
 ## Getting Started
 
